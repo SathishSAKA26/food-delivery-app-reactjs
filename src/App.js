@@ -1,7 +1,12 @@
 import React from "react";
+import { Header } from "./components";
 
 const App = () => {
-  return <div className="text-2xl my-5 font-bold underline">App</div>;
+  return (
+    <div className="w-screen h-auto flex flex-col">
+      <Header />
+    </div>
+  );
 };
 
 export default App;
