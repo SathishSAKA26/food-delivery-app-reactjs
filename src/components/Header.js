@@ -2,7 +2,11 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <div className="">Header</div>
+    <div className="fixed z-50 w-screen p-6 px-16">
+      {/* Desktop & Tablet */}
+
+      {/* Mobile */}
+    </div>
   )
 }
 
