@@ -1,19 +1,21 @@
 import React from 'react';
 import { FaOpencart } from "react-icons/fa";
+import { motion } from 'framer-motion';
+import { Link } from "react-router-dom";
 
 import Logo from "../assets/img/logo.png";
 import Avatar from "../assets/img/avatar.png";
 
 const Header = () => {
   return (
-    <header className="fixed z-50 w-screen p-6 px-16">
+    <header className="fixed z-50 w-screen p-6 px-10">
       {/* Desktop & Tablet */}
       <div className="hidden md:flex w-full h-full justify-between">
         {/* !logo section */}
-        <div className="flex items-center  gap-2">
+        <Link className="flex items-center  gap-2">
           <img src={Logo} alt="logo" className="w-8 object-cover" />
           <p className="text-gray-600 text-2xl font-bold">Food</p>
-        </div>
+        </Link>
 
         {/* Right side container */}
         <div className="flex items-center gap-6">
@@ -34,7 +36,7 @@ const Header = () => {
           </div>
 
           {/* Avatar */}
-          <img src={Avatar} alt="Profile" className="w-8 min-w-[35px] h-8 min-h-[35px] shadow-xl rounded-full" />
+          <motion.img whileTap={{ scale: 0.6 }} src={Avatar} alt="Profile" className="w-7 min-w-[32px] h-7 min-h-[32px] shadow-xl rounded-full cursor-pointer" />
         </div>
       </div>
 
