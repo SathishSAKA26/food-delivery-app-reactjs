@@ -3,16 +3,29 @@ import { FaOpencart } from "react-icons/fa";
 import { motion } from 'framer-motion';
 import { Link } from "react-router-dom";
 
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { app } from "../firebase.config";
+
 import Logo from "../assets/img/logo.png";
 import Avatar from "../assets/img/avatar.png";
 
 const Header = () => {
+
+  const firebaseAuth = getAuth(app);
+  const provider = new GoogleAuthProvider();
+
+  // Login Function 
+  const login = async () => {
+    const response = await signInWithPopup(firebaseAuth, provider);
+    console.log(response);
+  }
+
   return (
     <header className="fixed z-50 w-screen p-6 px-10">
       {/* Desktop & Tablet */}
       <div className="hidden md:flex w-full h-full justify-between">
         {/* !logo section */}
-        <Link className="flex items-center  gap-2">
+        <Link to={"/"} className="flex items-center  gap-2">
           <img src={Logo} alt="logo" className="w-8 object-cover" />
           <p className="text-gray-600 text-2xl font-bold">Food</p>
         </Link>
@@ -36,7 +49,9 @@ const Header = () => {
           </div>
 
           {/* Avatar */}
-          <motion.img whileTap={{ scale: 0.6 }} src={Avatar} alt="Profile" className="w-7 min-w-[32px] h-7 min-h-[32px] shadow-xl rounded-full cursor-pointer" />
+          <div className="relative">
+            <motion.img whileTap={{ scale: 0.6 }} src={Avatar} alt="Profile" className="w-7 min-w-[32px] h-7 min-h-[32px] shadow-xl rounded-full cursor-pointer" onClick={login} />
+          </div>
         </div>
       </div>
 
