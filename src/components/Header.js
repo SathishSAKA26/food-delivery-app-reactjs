@@ -34,10 +34,10 @@ const Header = () => {
         <div className="flex items-center gap-6">
           {/* !!list section */}
           <ul className="flex items-center gap-8">
-            <li className="font-medium text-gray-400 hover:text-gray-700 duration-100 transition-all ease-in-out cursor-pointer">Home</li>
-            <li className="font-medium text-gray-400 hover:text-gray-700 duration-100 transition-all ease-in-out cursor-pointer">Menu</li>
-            <li className="font-medium text-gray-400 hover:text-gray-700 duration-100 transition-all ease-in-out cursor-pointer">About Us</li>
-            <li className="font-medium text-gray-400 hover:text-gray-700 duration-100 transition-all ease-in-out cursor-pointer">Service</li>
+            <li className="font-medium text-gray-400 hover:text-red-600 duration-100 transition-all ease-in-out cursor-pointer">Home</li>
+            <li className="font-medium text-gray-400 hover:text-red-600 duration-100 transition-all ease-in-out cursor-pointer">Menu</li>
+            <li className="font-medium text-gray-400 hover:text-red-600 duration-100 transition-all ease-in-out cursor-pointer">About Us</li>
+            <li className="font-medium text-gray-400 hover:text-red-600 duration-100 transition-all ease-in-out cursor-pointer">Service</li>
           </ul>
 
           {/* !cart section */}
