@@ -8,17 +8,26 @@ import { app } from "../firebase.config";
 
 import Logo from "../assets/img/logo.png";
 import Avatar from "../assets/img/avatar.png";
+import { useStateValue } from '../context/StateProvider';
+import { actionType } from '../context/reducer';
 
 const Header = () => {
 
   const firebaseAuth = getAuth(app);
   const provider = new GoogleAuthProvider();
 
+  const [{ user }, dispatch] = useStateValue();
+
   // Login Function 
   const login = async () => {
-    const response = await signInWithPopup(firebaseAuth, provider);
-    console.log(response);
-  }
+    const {
+      user: { refreshToken, providerData },
+    } = await signInWithPopup(firebaseAuth, provider);
+    dispatch({
+      type: actionType.SET_USER,
+      user: providerData[0],
+    });
+  };
 
   return (
     <header className="fixed z-50 w-screen p-6 px-10">
@@ -50,7 +59,7 @@ const Header = () => {
 
           {/* Avatar */}
           <div className="relative">
-            <motion.img whileTap={{ scale: 0.6 }} src={Avatar} alt="Profile" className="w-7 min-w-[32px] h-7 min-h-[32px] shadow-xl rounded-full cursor-pointer" onClick={login} />
+            <motion.img whileTap={{ scale: 0.6 }} src={user ? user : Avatar} alt="Profile" className="w-7 min-w-[32px] h-7 min-h-[32px] shadow-xl rounded-full cursor-pointer" onClick={login} />
           </div>
         </div>
       </div>
